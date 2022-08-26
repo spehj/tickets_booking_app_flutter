@@ -1,3 +1,4 @@
+import 'package:booktickets/screens/hotel_screen.dart';
 import 'package:booktickets/screens/ticket_view.dart';
 import 'package:booktickets/utils/app_styles.dart';
 import 'package:flutter/cupertino.dart';
@@ -94,7 +95,43 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          TicketView(),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.only(left: 20),
+            child: Row(
+              children: [
+                TicketView(),
+                TicketView(),
+
+              ],
+            ),
+          ),
+          const SizedBox(height: 16,),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Hotels",
+                  style: Styles.headlineStyle2,
+                ),
+                InkWell(
+                    onTap: () {
+
+                    },
+                    child: Text(
+                      "View all",
+                      style: Styles.textStyle
+                          .copyWith(color: Styles.primaryColor),
+                    )),
+              ],
+            ),
+          ),
+          const SizedBox(height: 16,),
+          HotelScreen()
+
+
         ],
       ),
     );
