@@ -6,6 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 
+import '../utils/app_info_list.dart';
+import '../utils/app_layout.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -17,10 +20,10 @@ class HomeScreen extends StatelessWidget {
         children: [
           Container(
             padding:
-                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+                 EdgeInsets.symmetric(horizontal: AppLayout.getWidth(20), vertical: AppLayout.getHeight(10)),
             child: Column(
               children: [
-                const Gap(40),
+                 Gap(AppLayout.getHeight(40)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -31,7 +34,7 @@ class HomeScreen extends StatelessWidget {
                           "Good Morning!",
                           style: Styles.headlineStyle3,
                         ),
-                        const Gap(5),
+                         Gap(AppLayout.getHeight(5)),
                         Text(
                           "Book Tickets",
                           style: Styles.headlineStyle1,
@@ -39,10 +42,10 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                     Container(
-                      height: 50,
-                      width: 50,
+                      height: AppLayout.getHeight(50),
+                      width: AppLayout.getWidth(50),
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(AppLayout.getHeight(10)),
                           image: const DecorationImage(
                             fit: BoxFit.cover,
                             image: AssetImage("assets/images/img_1.png"),
@@ -50,14 +53,14 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 25),
+                 SizedBox(height: AppLayout.getHeight(25)),
                 Container(
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(AppLayout.getHeight(10)),
                     color: const Color(0xFFF4F6FD),
                   ),
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                       EdgeInsets.symmetric(horizontal: AppLayout.getWidth(12), vertical: AppLayout.getHeight(12)),
                   child: Row(
                     children: [
                       const Icon(
@@ -71,8 +74,8 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(
-                  height: 45,
+                 SizedBox(
+                  height: AppLayout.getHeight(45),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -83,7 +86,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     InkWell(
                         onTap: () {
-                          print("Tapped");
+                          //print("Tapped");
                         },
                         child: Text(
                           "View all",
@@ -97,18 +100,16 @@ class HomeScreen extends StatelessWidget {
           ),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-            padding: const EdgeInsets.only(left: 20),
+            padding:  EdgeInsets.only(left: AppLayout.getWidth(20)),
             child: Row(
-              children: [
-                TicketView(),
-                TicketView(),
+              children: ticketList.map((singleTicket) => TicketView(ticket: singleTicket)).toList()
 
-              ],
+
             ),
           ),
-          const SizedBox(height: 16,),
+           SizedBox(height: AppLayout.getHeight(16),),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.symmetric(horizontal: AppLayout.getWidth(20)),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -128,18 +129,14 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 16,),
+           SizedBox(height: AppLayout.getHeight(16),),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-              padding: const EdgeInsets.only(left:20),
+              padding:  EdgeInsets.only(left:AppLayout.getWidth(20)),
               child: Row(
-                children: [
-                  HotelScreen(),
-                  HotelScreen(),
-                  HotelScreen(),
-                ],
+                children: hotelList.map((singleHotel)=> HotelScreen(hotel: singleHotel)).toList()
               )),
-          const SizedBox(height: 16,),
+           SizedBox(height: AppLayout.getHeight(16),),
 
 
         ],
