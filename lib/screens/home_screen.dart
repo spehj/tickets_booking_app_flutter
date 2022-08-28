@@ -8,6 +8,7 @@ import 'package:fluentui_icons/fluentui_icons.dart';
 
 import '../utils/app_info_list.dart';
 import '../utils/app_layout.dart';
+import '../widgets/view_all_heading_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -77,24 +78,7 @@ class HomeScreen extends StatelessWidget {
                  SizedBox(
                   height: AppLayout.getHeight(45),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Upcoming Flights",
-                      style: Styles.headlineStyle2,
-                    ),
-                    InkWell(
-                        onTap: () {
-                          //print("Tapped");
-                        },
-                        child: Text(
-                          "View all",
-                          style: Styles.textStyle
-                              .copyWith(color: Styles.primaryColor),
-                        )),
-                  ],
-                )
+                const ViewAllHeading(heading: "Upcoming Fligths", viewAll: "View All",)
               ],
             ),
           ),
@@ -110,24 +94,7 @@ class HomeScreen extends StatelessWidget {
            SizedBox(height: AppLayout.getHeight(16),),
           Container(
             padding: EdgeInsets.symmetric(horizontal: AppLayout.getWidth(20)),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Hotels",
-                  style: Styles.headlineStyle2,
-                ),
-                InkWell(
-                    onTap: () {
-
-                    },
-                    child: Text(
-                      "View all",
-                      style: Styles.textStyle
-                          .copyWith(color: Styles.primaryColor),
-                    )),
-              ],
-            ),
+            child: const ViewAllHeading(heading: "Hotels", viewAll: "View All"),
           ),
            SizedBox(height: AppLayout.getHeight(16),),
           SingleChildScrollView(
