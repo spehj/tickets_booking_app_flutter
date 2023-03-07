@@ -11,7 +11,7 @@ class HotelScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = AppLayout.getSize(context);
-    print("Hotel price is ${hotel["price"]}");
+    //print("Hotel price is ${hotel["price"]}");
     return Container(
       width: size.width * 0.6,
       height: AppLayout.getHeight(350),
